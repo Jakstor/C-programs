@@ -1,0 +1,42 @@
+#include<stdio.h>
+int main()
+{
+	int t,n,k,s[100],temp,i,j,max;
+	scanf("%d",&t);
+	while(t--)
+	{
+		scanf("%d",&n);
+		scanf("%d",&k);
+		for(i=0;i<n;i++)
+		{
+			scanf("%d",&s[i]);
+		}
+		for(i=0;i<n;i++)
+		{
+			for(j=1;j<n-i;j++)
+			{
+				if(s[j-1]<s[j])
+				{
+					temp=s[j-1];
+					s[j-1]=s[j];
+					s[j]=temp;
+				}
+			}
+		}
+		int c=0;
+		for(i=0;i<k;i++)
+		{
+			max=s[i];
+			for(j=i+1;j<n;j++)
+			{
+				if(s[j]==max)
+				{
+					c++;
+				}
+			}
+			c++;
+		}
+		printf("%d\n",c);
+	}
+	return(0);
+}

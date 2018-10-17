@@ -1,0 +1,45 @@
+#include<stdio.h>
+int main()
+{
+	freopen("input.txt","r",stdin);
+	int i,n,p1,p2,key,j,car,a[100],b[100];
+	int c=0;
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&b[i]);
+	}
+	for(i=0;i<n;i++)
+	{
+		car=b[i];
+		for(j=0;j<n;j++)
+		{
+			if(car==a[j])
+			{
+				break;
+			}
+		}
+		p1=j;
+		for(j=0;j<n;j++)
+		{
+			if(car==b[j])
+			{
+				break;
+			}
+		}
+		p2=j;
+		key=a[p1];
+		for(j=p1;j<p2;j++)
+		{
+			a[j+1]=a[j];
+			c++;
+		}
+		a[p2]=key;
+	}
+	printf("%d",c);
+	return(0);
+}
